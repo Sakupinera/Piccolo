@@ -66,10 +66,12 @@ if(ENABLE_PHYSICS_DEBUG_RENDERER)
 endif()
 
 # 添加PiccoloRuntime库的头文件搜索路径
+# target_include_directories用于指定一个目标需要的头文件的位置。它有三个参数：目标名，作用域和路径列表
 target_include_directories(
   ${TARGET_NAME}
   PUBLIC $<BUILD_INTERFACE:${vulkan_include}>)
 
+# add_dependencies用于指定一个目标依赖于另一个目标。它有两个参数：目标名和依赖目标名
 add_dependencies(${TARGET_NAME} ${SHADER_COMPILE_TARGET})
 target_include_directories(
   ${TARGET_NAME}
